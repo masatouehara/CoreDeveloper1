@@ -9,15 +9,24 @@
 
 #Function: Bubble sort
 
-def bs(x):
+# maximum numer go to right side
+def MaxnumberGotoRight(x):
     n = len(x)
-    for i in range(n): # Search all number
-        for j in range(0, n-i-1):
-            if x[j] > x[j+1] :
-                x[j], x[j+1] = x[j+1], x[j]
+    for i in range(0,n-1):
+        if x[i] > x[i+1]:
+            x[i] , x[i+1] = x[i+1] , x[i]
+    return x
 
+def bubblesort(x):
+    n = len(x)
+    for i in range(n,1,-1):  
+        MaxnumberGotoRight(x)
+        #print(i,":",x)
+    return x
 
-
+#TEST
+x = [22,20,1,5,6,13,4,0,1]
+print(bubblesort(x))
 
 # EXERCISE 2:
 
@@ -38,6 +47,4 @@ def Substring(word,substring):
 
 word = "abdsa"
 substring = "b"
-print(Substring(word,substring))
-
-    
+print(Substring(word,substring)) #output the number
